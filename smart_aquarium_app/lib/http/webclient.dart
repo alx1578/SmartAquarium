@@ -1,8 +1,9 @@
 import 'dart:convert';
-import 'package:http/http.dart';
-import 'package:http_interceptor/http_interceptor.dart';
+
 import 'package:smart_aquarium_app/models/phValue.dart';
 import 'package:smart_aquarium_app/models/temperatureValue.dart';
+import 'package:http_interceptor/http_interceptor.dart';
+import 'package:http/http.dart';
 
 class TemperatureInterceptor implements InterceptorContract {
   @override
@@ -91,7 +92,7 @@ Future<List<GetpHValue>> Getph() async {
   return ph;
 }
 
-Future<List<GetTemperatureValue>> GetTemperature() async {
+Future<GetTemperatureValue> GetTemperature() async {
   final Client client = HttpClientWithInterceptor.build(
     interceptors: [TemperatureInterceptor()],
   );
@@ -105,5 +106,5 @@ Future<List<GetTemperatureValue>> GetTemperature() async {
     temperatures.add(GetTemperatureValue(element['value']));
     print(temperatures.toString());
   }
-  return temperatures;
+  return temperatures[0];
 }

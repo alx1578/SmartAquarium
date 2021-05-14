@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:smart_aquarium_app/screens/login.dart';
 
-import 'login.dart';
 
 const _tituloApp = "Smart Aquarium";
 const _descricao = "Uma solução para\nseu aquário marinho";

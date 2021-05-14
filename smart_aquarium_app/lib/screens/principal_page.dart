@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_aquarium_app/components/constructor_switch.dart';
-import 'package:smart_aquarium_app/components/contructor_widget_temp.dart';
-import 'package:smart_aquarium_app/components/contructor_widgets_ph.dart';
+import 'package:smart_aquarium_app/components/constructor_widget_ph.dart';
+import 'package:smart_aquarium_app/components/constructor_widget_temp.dart';
 
 double _valor = 0.00;
 double _valorPh = 0.00;
@@ -30,9 +30,9 @@ class PrincipalPageState extends State<PrincipalPage> {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: SizedBox(
-                    child: ContructorWidgetTemperature(),
-                    height: 250,
-                    width: 450,),
+                  child: ContructorWidgetTemperature(),
+                  height: 250,
+                  width: 450,),
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -42,7 +42,7 @@ class PrincipalPageState extends State<PrincipalPage> {
                     child: ContructorPhWidget()),
               ),
               SwitchConstructor(
-                status
+                  status
               ),
             ],
           ),
@@ -51,4 +51,3 @@ class PrincipalPageState extends State<PrincipalPage> {
     );
   }
 }
-

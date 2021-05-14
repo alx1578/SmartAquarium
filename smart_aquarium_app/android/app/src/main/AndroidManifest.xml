@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="smartaquariumapp.smart_aquarium_app">
    <application
-        android:usesCleartextTraffic="true"
         android:label="smart_aquarium_app"
         android:icon="@mipmap/ic_launcher">
         <activity

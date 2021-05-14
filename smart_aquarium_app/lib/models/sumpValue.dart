@@ -1,4 +1,3 @@
-
 class GetSumpValue{
   final bool status;
 

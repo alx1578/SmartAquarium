@@ -1,4 +1,3 @@
-
 class GetAlimentadorValue {
   final bool status;
 

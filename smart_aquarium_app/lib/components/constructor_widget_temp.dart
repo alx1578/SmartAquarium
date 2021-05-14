@@ -1,5 +1,3 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_aquarium_app/http/webclient.dart';
 import 'package:smart_aquarium_app/models/temperatureValue.dart';
@@ -38,7 +36,7 @@ Future<double> ValorTemp(BuildContext context) async {
 
         return Text("(data)");
       });
-   return temp;
+  return temp;
 }
 
 class ContructorWidgetTemperatureState
@@ -92,7 +90,7 @@ class ContructorWidgetTemperatureState
           annotations: <GaugeAnnotation>[
             GaugeAnnotation(
                 widget: Text(ValorTemp(context).then((double) => tempValue).toString() +
-                  '°C',
+                    '°C',
                   style: TextStyle(
                       fontSize: 20, fontWeight: FontWeight.w600),
                 ),

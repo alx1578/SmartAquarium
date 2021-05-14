@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/alx15/Documents/TCC/Aplicativo/smart_aquarium_app/lib/models/editor.dart';
 import 'package:smart_aquarium_app/screens/control_page.dart';
 
 const _login = "Login";
@@ -39,7 +38,7 @@ class LoginPageState extends State<LoginPage> {
                       ]),
                   color: Colors.blue,
                   borderRadius:
-                  BorderRadius.only(bottomLeft: Radius.circular(80))),
+                      BorderRadius.only(bottomLeft: Radius.circular(80))),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -80,25 +79,24 @@ class LoginPageState extends State<LoginPage> {
                     Container(
                       width: 300,
                       height: 45,
-                      padding: EdgeInsets.only(
-                          top: 8,left: 16,right: 16
-                      ),
+                      padding: EdgeInsets.only(top: 8, left: 16, right: 16),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                            Radius.circular(50)
-                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black,
                             blurRadius: 20,
-                          )],
+                          )
+                        ],
                       ),
                       child: TextField(
                         controller: usuario,
                         decoration: InputDecoration(
-                          icon: Icon(Icons.person
-                            ,color: Colors.black,),
+                          icon: Icon(
+                            Icons.person,
+                            color: Colors.black,
+                          ),
                           hintText: 'Usuário',
                         ),
                       ),
@@ -107,26 +105,25 @@ class LoginPageState extends State<LoginPage> {
                       width: 300,
                       height: 45,
                       margin: EdgeInsets.only(top: 32),
-                      padding: EdgeInsets.only(
-                          top: 8,left: 16,right: 16
-                      ),
+                      padding: EdgeInsets.only(top: 8, left: 16, right: 16),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                            Radius.circular(50)
-                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black,
                             blurRadius: 20,
-                          )],
+                          )
+                        ],
                       ),
                       child: TextField(
                         controller: _senha,
                         obscureText: true,
                         decoration: InputDecoration(
-                          icon: Icon(Icons.vpn_key
-                            ,color: Colors.black,),
+                          icon: Icon(
+                            Icons.vpn_key,
+                            color: Colors.black,
+                          ),
                           hintText: 'Usuário',
                         ),
                       ),
@@ -142,7 +139,8 @@ class LoginPageState extends State<LoginPage> {
                   child: ButtonTheme(
                     minWidth: 300,
                     child: RaisedButton(
-                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
                       onPressed: () {
                         Login(
                           usuario.text,
@@ -163,9 +161,14 @@ class LoginPageState extends State<LoginPage> {
 
   bool Login(String usuario, String senha) {
     if (usuario == 'teste' && senha == 'teste') {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return ControlPage();
-      }));
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return ControlPage();
+          },
+        ),
+      );
     }
   }
 }

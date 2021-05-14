@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_aquarium_app/screens/add_config_page.dart';
 import 'package:smart_aquarium_app/screens/config_page.dart';
-import 'package:smart_aquarium_app/screens/login.dart';
 import 'package:smart_aquarium_app/screens/principal_page.dart';
 
 class ControlPage extends StatefulWidget {
@@ -19,10 +18,10 @@ class ControlState extends State<ControlPage> {
 
 
   void _itemTapped(int index) {
-   setState(() {
+    setState(() {
       _currentindex = index;
-     }
-   );
+    }
+    );
   }
 
   @override

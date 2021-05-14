@@ -1,4 +1,3 @@
-
 class GetTemperatureValue {
   final double valor;
   GetTemperatureValue(this.valor);
