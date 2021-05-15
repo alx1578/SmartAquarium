@@ -15,31 +15,6 @@ class ContructorWidgetTemperature extends StatefulWidget {
 }
 
 
-
-Future<double> ValorTemp(BuildContext context) async {
-  double temp;
-  await FutureBuilder<GetTemperatureValue>(
-      future: GetTemperature(),
-      builder: (context, snapshot) {
-        switch (snapshot.connectionState) {
-          case ConnectionState.none:
-            break;
-          case ConnectionState.waiting:
-            return Progress();
-            break;
-          case ConnectionState.active:
-            break;
-          case ConnectionState.done:
-            final GetTemperatureValue temperatureValue = snapshot.data;
-            temp = temperatureValue.valor;
-            print('valor temp' + '${temp}');
-            break;
-        }
-        return Text("(data)");
-      });
-  return temp;
-}
-
 class ContructorWidgetTemperatureState
     extends State<ContructorWidgetTemperature> {
   @override
@@ -69,7 +44,7 @@ class ContructorWidgetTemperatureState
           ],
           pointers: <GaugePointer>[
             NeedlePointer(
-              value: double.tryParse(ValorTemp(context).then((value) => double).toString()),
+              value: tempValue,
               enableAnimation: true,
               needleColor: Colors.black,
               tailStyle: TailStyle(
@@ -102,4 +77,29 @@ class ContructorWidgetTemperatureState
       ],
     );
   }
+
+
+  Future<double> ValorTemp(BuildContext context) async {
+    await FutureBuilder<GetTemperatureValue>(
+        future: GetTemperature(),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+              break;
+            case ConnectionState.waiting:
+              return Progress();
+              break;
+            case ConnectionState.active:
+              break;
+            case ConnectionState.done:
+              final GetTemperatureValue temperatureValue = snapshot.data;
+              tempValue = temperatureValue.valor;
+              print('valor temp' + '${tempValue}');
+              break;
+          }
+          return Text("(data)");
+        });
+    return tempValue;
+  }
+
 }
