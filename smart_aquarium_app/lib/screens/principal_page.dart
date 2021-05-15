@@ -15,11 +15,12 @@ class PrincipalPage extends StatefulWidget {
 
 class PrincipalPageState extends State<PrincipalPage> {
   bool status = false;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Colors.white10,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Smart Aquarium - Tela de Controle'),
       ),
@@ -32,18 +33,21 @@ class PrincipalPageState extends State<PrincipalPage> {
                 child: SizedBox(
                   child: ContructorWidgetTemperature(),
                   height: 250,
-                  width: 450,),
+                  width: 450,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: SizedBox(
-                    height: 250,
-                    width: 450,
-                    child: ContructorPhWidget()),
+                  height: 250,
+                  width: 450,
+                  child: ContructorPhWidget(),
+                ),
               ),
-              SwitchConstructor(
-                  status
-              ),
+              SwitchConstructor(status, 'Filtro de Água'),
+              SwitchConstructor(status, 'Cooler'),
+              SwitchConstructor(status, 'Aquecedor'),
+              SwitchConstructor(status, 'Sump'),
             ],
           ),
         ],

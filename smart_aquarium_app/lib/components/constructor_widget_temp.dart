@@ -14,6 +14,8 @@ class ContructorWidgetTemperature extends StatefulWidget {
   }
 }
 
+
+
 Future<double> ValorTemp(BuildContext context) async {
   double temp;
   await FutureBuilder<GetTemperatureValue>(
@@ -30,10 +32,9 @@ Future<double> ValorTemp(BuildContext context) async {
           case ConnectionState.done:
             final GetTemperatureValue temperatureValue = snapshot.data;
             temp = temperatureValue.valor;
-            print(temp);
+            print('valor temp' + '${temp}');
             break;
         }
-
         return Text("(data)");
       });
   return temp;
@@ -68,7 +69,7 @@ class ContructorWidgetTemperatureState
           ],
           pointers: <GaugePointer>[
             NeedlePointer(
-              value: double.tryParse(ValorTemp(context).then((double) => tempValue).toString()),
+              value: double.tryParse(ValorTemp(context).then((value) => double).toString()),
               enableAnimation: true,
               needleColor: Colors.black,
               tailStyle: TailStyle(
@@ -89,7 +90,7 @@ class ContructorWidgetTemperatureState
           ],
           annotations: <GaugeAnnotation>[
             GaugeAnnotation(
-                widget: Text(ValorTemp(context).then((double) => tempValue).toString() +
+                widget: Text('50.0'+
                     '°C',
                   style: TextStyle(
                       fontSize: 20, fontWeight: FontWeight.w600),

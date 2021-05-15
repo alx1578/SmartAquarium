@@ -30,7 +30,7 @@ class ControlState extends State<ControlPage> {
       body: _screens.elementAt(_currentindex),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.blue,
         iconSize: 24,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -39,7 +39,7 @@ class ControlState extends State<ControlPage> {
               color: Colors.black,
             ),
             label: 'Home',
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
             icon: Icon(

@@ -8,7 +8,7 @@ import 'package:http/http.dart';
 class TemperatureInterceptor implements InterceptorContract {
   @override
   Future<RequestData> interceptRequest({RequestData data}) async {
-    print(data.toString());
+    //print(data.toString());
     return data;
   }
 
@@ -86,7 +86,7 @@ Future<List<GetpHValue>> Getph() async {
   final List<dynamic> decodedJson = jsonDecode(
     response.body,
   );
-  for(Map<String,dynamic> element in decodedJson){
+  for (Map<String, dynamic> element in decodedJson) {
     ph.add(GetpHValue(element['value']));
   }
   return ph;
@@ -94,7 +94,9 @@ Future<List<GetpHValue>> Getph() async {
 
 Future<GetTemperatureValue> GetTemperature() async {
   final Client client = HttpClientWithInterceptor.build(
-    interceptors: [TemperatureInterceptor()],
+    interceptors: [
+      TemperatureInterceptor(),
+    ],
   );
   final Response response = await client.get(Uri.http(
     '192.168.0.14:8080',
@@ -103,8 +105,12 @@ Future<GetTemperatureValue> GetTemperature() async {
   final List<GetTemperatureValue> temperatures = List();
   final List<dynamic> decodedJson = jsonDecode(response.body);
   for (Map<String, dynamic> element in decodedJson) {
-    temperatures.add(GetTemperatureValue(element['value']));
-    print(temperatures.toString());
+    temperatures.add(
+      GetTemperatureValue(
+        element['value'],
+      ),
+    );
+    print('Valor da temp : ${temperatures[0].toString()}');
   }
   return temperatures[0];
 }
